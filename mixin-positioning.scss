@@ -1,0 +1,70 @@
+@mixin pos-lt($position) {
+  left: $position;
+  top: $position;
+}
+
+@mixin pos-rt($position) {
+  right: $position;
+  top: $position;
+}
+
+@mixin pos-lb($position) {
+  left: $position;
+  bottom: $position;
+}
+
+@mixin pos-rb($position) {
+  right: $position;
+  bottom: $position;
+}
+
+@mixin pos-alt($position) {
+  position: absolute;
+  @include pos-lt($position);
+}
+
+@mixin pos-art($position) {
+  position: absolute;
+  @include pos-rt($position);
+}
+
+@mixin pos-alb($position) {
+  position: absolute;
+  @include pos-lb($position);
+}
+
+@mixin pos-arb($position) {
+  position: absolute;
+  @include pos-rb($position);
+}
+
+.alt0 {
+  @include pos-alt(0);
+}
+
+.center-shift {
+  @include pos-alt(50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin size-wh($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin rect($position, $size) {
+  @include pos-lt($position);
+  @include size-wh($size);
+}
+
+@mixin circlip($diameter) {
+  @include size-wh($diameter);
+  $radius: $diameter / 2;
+  clip-path: circle($radius at $radius $radius);
+  overflow: hidden;
+}
+
+@mixin circlira($diameter) {
+  @include circlip($diameter);
+  border-radius: 50%;
+}
