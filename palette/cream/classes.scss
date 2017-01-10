@@ -1,4 +1,4 @@
-@import 'palette-colors-cream';
+@import 'colors';
 
 @for $i from 1 through $theme-cols-num {
     $name: nth($theme-cols-names,$i);
